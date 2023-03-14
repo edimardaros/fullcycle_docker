@@ -70,3 +70,46 @@ create table people (id int not null auto_increment, name varchar(255), primary 
 As pastas nginx e laravel foram utilizadas em testes anteriores.
 
 Eles possuem arquivos `Dockerfile` para iniciar seus containers, com seus respectivos serviços.
+
+
+# Comandos para utilização geral do Docker:
+
+### Verificar containers que estão em pé
+```
+docker ps
+```
+
+### Remover um container (Pegar o ID/nome com `docker ps`)
+```
+docker rm **id_container** 
+ou
+docker rm **nome_container**
+
+```
+
+### Parar e remover todas as imagens dos containers
+```
+docker rm $(docker ps -a -q) -f
+```
+
+### Entrar no bash do container
+```
+docker exec -it *nome_container* bash
+```
+
+### Usando docker compose, quando algum Dockerfile for alterado, utilizar esse comando para dar o build das novas informações e inicializar os containers
+```
+docker compose up -d --build
+```
+
+### E para parar os containers usando o docker compose, usar:
+```
+docker compose down
+```
+
+### Verificar log de algum container
+```
+docker log *nome_container*
+```
+
+### 
